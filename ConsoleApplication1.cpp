@@ -51,14 +51,14 @@ private:
 };
 #pragma endregion
 
-int main()
+int wmain(int argc, PWSTR argv[])
 {
 	ProcessReference ref;
 	SHELLEXECUTEINFOW info = {
 		.cbSize = sizeof info,
 		.fMask = SEE_MASK_INVOKEIDLIST | SEE_MASK_NOCLOSEPROCESS,
 		.lpVerb = L"properties",
-		.lpFile = LR"(C:\Windows\System32\drivers\ntfs.sys)",
+		.lpFile = argc < 2 ? LR"(C:\Windows\System32\drivers\ntfs.sys)" : argv[1],
 		.nShow = SW_SHOW,
 	};
 	ShellExecuteExW(&info);
