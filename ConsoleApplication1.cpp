@@ -62,4 +62,5 @@ int wmain(int argc, PWSTR argv[])
 		.nShow = SW_SHOW,
 	};
 	ShellExecuteExW(&info);
+	return EXIT_SUCCESS;
 }
